@@ -430,7 +430,10 @@ var Legend = Element.extend({
 				var width = boxWidth + (fontSize / 2) + textWidth;
 				var x = cursor.x;
 				var y = cursor.y;
-
+				
+				if (me.options.align === 'center')
+					y += (ctx.canvas.clientHeight - (itemHeight * me.legendItems.length)) / 2;
+				
 				if (isHorizontal) {
 					if (x + width >= legendWidth) {
 						y = cursor.y += itemHeight;
